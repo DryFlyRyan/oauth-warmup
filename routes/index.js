@@ -10,10 +10,15 @@ router.get('/', function(req, res, next) {
       .header('x-li-format', 'json')
       .end(function (response) {
         console.log(response);
-        res.render('index', { profile: response.body });
+        res.render('index', {
+          profile: response.body,
+          title: 'My Logged In App, Yo'
+        });
       })
   } else {
-    res.render('index', { })
+
+    res.render('index', {
+    title: 'My App, Yo'})
   }
 });
 

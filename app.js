@@ -39,7 +39,7 @@ passport.use(new LinkedInStrategy({
 }, function(accessToken, refreshToken, profile, done) {
   process.nextTick(function () {
   // console.log(profile);
-  return done(null, {id: profile.id, displayName: profile.displayName});
+  return done(null, {id: profile.id, displayName: profile.displayName, token: accessToken});
   });
 }));
 
@@ -66,7 +66,7 @@ app.get('/auth/linkedin',
 
 app.get('/auth/linkedin/callback',
 passport.authenticate('linkedin', {
-  successRedirect: '/',
+  successRedirect:'/',
   failureRedirect: '/login'
 }));
 

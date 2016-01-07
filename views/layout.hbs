@@ -6,6 +6,9 @@
   </head>
   <body>
     {{{body}}}
+    {{#if profile}}
+        <img src="{{profile.pictureUrl}}">
+      {{/if}}
     {{#if user}}
         <p>
           Hello {{user.displayName}}
